@@ -55,7 +55,7 @@ public class InsertTest {
 	}
 	
 	@Test
-	public void insertWord() throws Exception{
+	public void insertWordTest() throws Exception{
 		RestMock rm = new RestMock();
 		randomWord = Utils.randomWord();
 		String answer = rm.insertWord(randomWord);
@@ -65,7 +65,7 @@ public class InsertTest {
 	}
 	
 	@Test(expectedExceptions=WebApplicationException.class)
-	public void insertAWordThatAlreadyExists() throws Exception{
+	public void insertAWordThatAlreadyExistsTest() throws Exception{
 		RestMock rm = new RestMock();
 		randomWord = Utils.randomWord();
 		rm.insertWord(randomWord);
@@ -73,7 +73,7 @@ public class InsertTest {
 	}
 	
 	@Test
-	public void insertWordWithSpecialCharacter() throws Exception{
+	public void insertWordWithSpecialCharacterTest() throws Exception{
 		RestMock rm = new RestMock();
 		randomWord = Utils.randomWord();
 		String randomWordWithoutSpecialCharacter = randomWord + "cao";

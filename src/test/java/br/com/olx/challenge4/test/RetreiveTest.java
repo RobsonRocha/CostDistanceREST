@@ -12,7 +12,7 @@ import br.com.olx.challenge4.test.util.Utils;
 public class RetreiveTest {
 	
 	@Test
-	public void getMinDistanceWithThreshold() throws Exception{
+	public void getMinDistanceWithThresholdTest() throws Exception{
 		RestMock rm = new RestMock();
 		List<String> listWords = rm.getWords();
 		int position = (int) Math.random()*(listWords.size()-1);
@@ -29,7 +29,7 @@ public class RetreiveTest {
 	}
 	
 	@Test
-	public void getMinDistanceWithoutThreshold() throws Exception{
+	public void getMinDistanceWithoutThresholdTest() throws Exception{
 		RestMock rm = new RestMock();
 		List<String> listWords = rm.getWords();
 		int position = (int) Math.random()*(listWords.size()-1);

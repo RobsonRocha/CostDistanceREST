@@ -1,0 +1,25 @@
+-- SCHEMA: olx_desafio4
+
+-- DROP SCHEMA olx_desafio4 ;
+
+CREATE SCHEMA olx_desafio4
+    AUTHORIZATION postgres;
+
+-- Table: olx_desafio4.palavras
+
+-- DROP TABLE olx_desafio4.palavras;
+
+CREATE TABLE olx_desafio4.palavras
+(
+    id bigint NOT NULL DEFAULT nextval('olx_desafio4.palavras_id_seq'::regclass),
+    termo character varying(4000) COLLATE "default".pg_catalog NOT NULL,
+    CONSTRAINT palavras_pkey PRIMARY KEY (id),
+    CONSTRAINT ck_termo UNIQUE (termo)
+)
+WITH (
+    OIDS = FALSE
+)
+TABLESPACE pg_default;
+
+ALTER TABLE olx_desafio4.palavras
+    OWNER to postgres;
