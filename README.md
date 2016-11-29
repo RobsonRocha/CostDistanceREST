@@ -34,7 +34,8 @@ Onde termo é a palavra em questão e número é o mínimo de movimentos que se deve 
 ## Compilação
 
 Para facilitar a importação de bibliotecas e a compilação dos arquivos em um único pacote, foi utilizado Maven.
-Para compilar gerando o pacote basta executar o comando "mvn -DskipTests compile package" na linha de comando.
+Para compilar gerando o pacote basta executar o comando abaixo na linha de comando.
+'''mvn -DskipTests compile package'''
 Na pasta target serão gerados vários arquivos, mas o pacote principal é gerado com o nome 'OLXCostDistanceRest-1.0.0-SNAPSHOT.war'
 
 ## Banco de dados
