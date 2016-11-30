@@ -19,7 +19,7 @@ import javax.ws.rs.core.Response;
 import org.postgresql.util.PSQLException;
 
 import br.com.olx.challenge4.bean.WordDistance;
-import br.com.olx.challenge4.db.DBConnection;
+import br.com.olx.challenge4.connection.DBConnection;
 import br.com.olx.challenge4.util.Utils;
 
 @Path("/challenge4")
@@ -88,7 +88,7 @@ public class MainRest {
 
 	@GET
 	@Path("/getallwords")
-	@Produces("text/json")
+	@Produces("application/json")
 	public List<String> getWords() {
 
 		StringBuilder sql = new StringBuilder();
@@ -130,7 +130,7 @@ public class MainRest {
 
 	@GET
 	@Path("/getmindistance")
-	@Produces("text/json")
+	@Produces("application/json")
 	public List<WordDistance> getMinDistance(@QueryParam("name") String word,
 			@QueryParam("threshold") Integer limit) {
 
