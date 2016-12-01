@@ -20,7 +20,7 @@ public class DBConnection {
 	private static Connection getConnectionDB() {
 		Connection con = null;
 
-		String url = "jdbc:postgresql://localhost:5432/olx";
+		String url = "jdbc:postgresql://localhost:5432";
 		String user = "postgres";
 		String password = "admin";
 		try {
