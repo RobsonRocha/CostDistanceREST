@@ -1,42 +1,26 @@
--- Database: olx
 
--- DROP DATABASE olx;
+-- SCHEMA: olx_desafio4
 
--- *** CASO JÁ EXISTA UMA DATABASE OLX COMENTE ESSA PARTE ***
+-- DROP SCHEMA olx_desafio4 ;
 
-
-CREATE DATABASE olx
-    WITH 
-    OWNER = postgres
-    ENCODING = 'UTF8'
-    TABLESPACE = pg_default
-    CONNECTION LIMIT = -1;
-
--- *** CASO JÁ EXISTA UMA DATABASE OLX COMENTE ESSA PARTE ***
-
-
--- SCHEMA: olx.olx_desafio4
-
--- DROP SCHEMA olx.olx_desafio4 ;
-
-CREATE SCHEMA olx.olx_desafio4
+CREATE SCHEMA olx_desafio4
     AUTHORIZATION postgres;
 
-CREATE SEQUENCE olx.olx_desafio4.palavras_id_seq
+CREATE SEQUENCE olx_desafio4.palavras_id_seq
     INCREMENT 1
     START 129
     MINVALUE 1
     MAXVALUE 9223372036854775807
     CACHE 1;
 
-ALTER SEQUENCE olx.olx_desafio4.palavras_id_seq
+ALTER SEQUENCE olx_desafio4.palavras_id_seq
     OWNER TO postgres;
 
--- Table: olx.olx_desafio4.palavras
+-- Table: olx_desafio4.palavras
 
--- DROP TABLE olx.olx_desafio4.palavras;
+-- DROP TABLE olx_desafio4.palavras;
 
-CREATE TABLE olx.olx_desafio4.palavras
+CREATE TABLE olx_desafio4.palavras
 (
     id bigint NOT NULL DEFAULT nextval('olx_desafio4.palavras_id_seq'::regclass),
     termo character varying(4000) NOT NULL,
@@ -48,5 +32,5 @@ WITH (
 )
 TABLESPACE pg_default;
 
-ALTER TABLE olx.olx_desafio4.palavras
+ALTER TABLE olx_desafio4.palavras
     OWNER to postgres;
