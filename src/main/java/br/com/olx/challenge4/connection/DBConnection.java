@@ -24,7 +24,6 @@ public class DBConnection {
 		String user = "postgres";
 		String password = "admin";
 		try {
-			//PostgreSQL driver
 			Class.forName("org.postgresql.Driver");
 			con = DriverManager.getConnection(url, user, password);
 		} catch (SQLException ex) {
