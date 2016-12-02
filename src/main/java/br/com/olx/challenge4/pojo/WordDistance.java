@@ -1,4 +1,4 @@
-package br.com.olx.challenge4.bean;
+package br.com.olx.challenge4.pojo;
 
 public class WordDistance {
 	

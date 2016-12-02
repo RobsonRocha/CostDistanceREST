@@ -16,8 +16,8 @@ import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
 
-import br.com.olx.challenge4.bean.WordDistance;
 import br.com.olx.challenge4.connection.DBConnection;
+import br.com.olx.challenge4.pojo.WordDistance;
 import br.com.olx.challenge4.test.mock.RestMock;
 import br.com.olx.challenge4.test.util.Utils;
 
@@ -86,7 +86,7 @@ public class InsertTest {
 		RestMock rm = new RestMock();
 		randomWord = Utils.randomWord();
 		String randomWordWithoutSpecialCharacter = randomWord + "cao";
-		randomWord +="Á„Û";
+		randomWord +="√ß√£√≥";
 		String answer = rm.insertWord(randomWord);
 		List<WordDistance> wd = rm.getMinDistance(randomWordWithoutSpecialCharacter, 0);
 		randomWord = randomWordWithoutSpecialCharacter;
@@ -98,7 +98,7 @@ public class InsertTest {
 		
 	}
 	
-	//Para esses testes o serviÁo deve estar no ar.
+	//Para esses testes o servi√ßo deve estar no ar.
 	
 	@Test
 	public void insertWordUsingRestServiceTest() throws Exception {
@@ -225,67 +225,6 @@ public class InsertTest {
 		
 		
 		conn.disconnect();
-	}
+	}	
 	
-	@Test
-	public void insertWordWithSpecialCharacterUsingRestServiceTest() throws Exception {
-		
-		randomWord = Utils.randomWord();
-		String randomWordWithouSpecialCharacter = randomWord+"cao";
-		randomWord += "Á„Û";
-		
-		URL url = new URL(REST_URL + "insertword/"+randomWord);
-		HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-		conn.setRequestMethod("GET");
-		conn.setRequestProperty("Accept", "text/plain");
-		
-		if (conn.getResponseCode() != 200) {
-			throw new RuntimeException("Failed : HTTP error code : "
-					+ conn.getResponseCode());
-		}
-
-		BufferedReader br = new BufferedReader(new InputStreamReader(
-				(conn.getInputStream())));
-
-		String output;
-		String answer = null;
-		while ((output = br.readLine()) != null) {
-			answer = output;
-		}
-
-		conn.disconnect();
-
-		Assert.assertTrue(answer.equals("A palavra "+randomWordWithouSpecialCharacter.toUpperCase()+" foi cadastrada com sucesso!!!"));
-		
-		url = new URL(REST_URL + "getmindistance?name="+randomWord+"&threshold=0");
-		conn = (HttpURLConnection) url.openConnection();
-		conn.setRequestMethod("GET");
-		conn.setRequestProperty("Accept", "application/json");
-		
-		if (conn.getResponseCode() != 200) {
-			throw new RuntimeException("Failed : HTTP error code : "
-					+ conn.getResponseCode());
-		}
-		
-		br = new BufferedReader(new InputStreamReader(
-				(conn.getInputStream())));
-		
-		List<WordDistance> answerList = new ArrayList<WordDistance>();
-		while ((output = br.readLine()) != null) {
-			Gson gson = new Gson();
-			answerList = gson.fromJson(output, new TypeToken<List<WordDistance>>(){}.getType());			
-			
-		}
-
-		conn.disconnect();
-
-		Assert.assertTrue(!answerList.isEmpty());
-		Assert.assertTrue(answerList.get(0).getDistance() == 0);
-		Assert.assertTrue(answerList.get(0).getWord1().equals(randomWordWithouSpecialCharacter.toUpperCase()));
-		Assert.assertTrue(answerList.get(0).getWord2().equals(randomWordWithouSpecialCharacter.toUpperCase()));
-				
-		conn.disconnect();
-		
-		randomWord = randomWordWithouSpecialCharacter;
-	}
 }

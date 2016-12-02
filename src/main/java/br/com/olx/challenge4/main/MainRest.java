@@ -18,8 +18,8 @@ import javax.ws.rs.core.Response;
 
 import org.postgresql.util.PSQLException;
 
-import br.com.olx.challenge4.bean.WordDistance;
 import br.com.olx.challenge4.connection.DBConnection;
+import br.com.olx.challenge4.pojo.WordDistance;
 import br.com.olx.challenge4.util.Utils;
 
 @Path("/challenge4")
@@ -52,12 +52,12 @@ public class MainRest {
 
 		} catch (PSQLException e) {
 			if (e.getMessage().contains("duplicate key value")) {
-				System.out.println(String.format("A palavra %s j· existe!!!",
+				System.out.println(String.format("A palavra %s j√° existe!!!",
 						newWord));
 				e.printStackTrace();
 				throw new WebApplicationException(Response
 						.status(HttpURLConnection.HTTP_BAD_REQUEST)
-						.entity(String.format("A palavra %s j· existe!!!", newWord)).build());
+						.entity(String.format("A palavra %s j√° existe!!!", newWord)).build());
 			} else {
 				System.out.println("Erro inesperado!!!");
 				e.printStackTrace();
@@ -137,7 +137,7 @@ public class MainRest {
 		if (word == null) {
 			throw new WebApplicationException(Response
 					.status(HttpURLConnection.HTTP_BAD_REQUEST)
-					.entity("O par‚metro name È obrigatÛrio!!!").build());
+					.entity("O par√¢metro name √© obrigat√≥rio!!!").build());
 		}
 		
 		String newWord = Utils.translate(word

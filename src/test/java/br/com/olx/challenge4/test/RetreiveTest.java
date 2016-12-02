@@ -10,7 +10,7 @@ import java.util.List;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import br.com.olx.challenge4.bean.WordDistance;
+import br.com.olx.challenge4.pojo.WordDistance;
 import br.com.olx.challenge4.test.mock.RestMock;
 import br.com.olx.challenge4.test.util.Utils;
 
@@ -55,7 +55,7 @@ public class RetreiveTest {
 		}
 	}
 
-	// Para esse teste o serviço deve estar no ar
+	// Para esse teste o serviï¿½o deve estar no ar
 
 	@Test
 	public void getAllWordsUsingRestServiceTest() throws Exception {
