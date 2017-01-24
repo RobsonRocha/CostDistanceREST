@@ -1,4 +1,4 @@
-## OLX_CostDistanceREST
+## CostDistanceREST
 
 ## Motivação
 
