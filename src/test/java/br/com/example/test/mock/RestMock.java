@@ -1,9 +1,9 @@
-package br.com.olx.challenge4.test.mock;
+package br.com.example.test.mock;
 
 import java.util.List;
 
-import br.com.olx.challenge4.main.MainRest;
-import br.com.olx.challenge4.pojo.WordDistance;
+import br.com.example.main.MainRest;
+import br.com.example.pojo.WordDistance;
 
 public class RestMock {
 	

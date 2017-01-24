@@ -1,4 +1,4 @@
-package br.com.olx.challenge4.main;
+package br.com.example.main;
 
 import java.net.HttpURLConnection;
 import java.sql.Connection;
@@ -18,11 +18,11 @@ import javax.ws.rs.core.Response;
 
 import org.postgresql.util.PSQLException;
 
-import br.com.olx.challenge4.connection.DBConnection;
-import br.com.olx.challenge4.pojo.WordDistance;
-import br.com.olx.challenge4.util.Utils;
+import br.com.example.connection.DBConnection;
+import br.com.example.pojo.WordDistance;
+import br.com.example.util.Utils;
 
-@Path("/challenge4")
+@Path("/main")
 public class MainRest {
 
 	@GET
@@ -31,7 +31,7 @@ public class MainRest {
 	public String insertWord(@PathParam("name") String word) {
 
 		StringBuilder sql = new StringBuilder();
-		sql.append("insert into olx_desafio4.palavras (termo) values (?) ");
+		sql.append("insert into distancia.palavras (termo) values (?) ");
 		Connection con = null;
 		PreparedStatement ps = null;
 		String result = "";
@@ -92,7 +92,7 @@ public class MainRest {
 	public List<String> getWords() {
 
 		StringBuilder sql = new StringBuilder();
-		sql.append("select termo from olx_desafio4.palavras ");
+		sql.append("select termo from distancia.palavras ");
 		Connection con = null;
 		PreparedStatement ps = null;
 		List<String> result = new ArrayList<String>();
@@ -144,7 +144,7 @@ public class MainRest {
 				.toUpperCase().trim());
 		
 		StringBuilder sql = new StringBuilder();
-		sql.append("select termo from olx_desafio4.palavras ");
+		sql.append("select termo from distancia.palavras ");
 		Connection con = null;
 		PreparedStatement ps = null;
 		List<WordDistance> result = new ArrayList<WordDistance>();

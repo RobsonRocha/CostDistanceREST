@@ -1,4 +1,4 @@
-package br.com.olx.challenge4.test;
+package br.com.example.test;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -16,10 +16,10 @@ import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
 
-import br.com.olx.challenge4.connection.DBConnection;
-import br.com.olx.challenge4.pojo.WordDistance;
-import br.com.olx.challenge4.test.mock.RestMock;
-import br.com.olx.challenge4.test.util.Utils;
+import br.com.example.connection.DBConnection;
+import br.com.example.pojo.WordDistance;
+import br.com.example.test.mock.RestMock;
+import br.com.example.test.util.Utils;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -27,12 +27,12 @@ import com.google.gson.reflect.TypeToken;
 public class InsertTest {
 	
 	private String randomWord;
-	private static final String REST_URL = "http://localhost:8080/OLXCostDistanceRest/challenge4/"; 
+	private static final String REST_URL = "http://localhost:8080/CostDistanceRest/main/"; 
 	
 	@AfterMethod
 	private void deleteWord() throws Exception{
 		StringBuilder sql = new StringBuilder();
-		sql.append("delete from olx_desafio4.palavras where termo = ? ");
+		sql.append("delete from distancia.palavras where termo = ? ");
 		Connection con = null;
 		PreparedStatement ps = null;
 		

@@ -1,4 +1,4 @@
-package br.com.olx.challenge4.connection;
+package br.com.example.connection;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

@@ -1,4 +1,4 @@
-package br.com.olx.challenge4.util;
+package br.com.example.util;
 
 import java.text.Normalizer;
 import java.util.regex.Pattern;

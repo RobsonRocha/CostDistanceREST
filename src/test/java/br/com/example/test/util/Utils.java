@@ -1,4 +1,4 @@
-package br.com.olx.challenge4.test.util;
+package br.com.example.test.util;
 
 public class Utils {
 	public static String randomWord() {
