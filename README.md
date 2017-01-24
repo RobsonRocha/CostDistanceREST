@@ -21,13 +21,13 @@ A linguagem utilizada é Java.
 
 Foram implementados três serviços REST que podem ser chamados via navegador da seguinte maneira:
 
-* `http://endereco/CostDistanceRest/challenge4/getallwords`
+* `http://endereco/CostDistanceRest/main/getallwords`
 Busca todas as palavras cadastradas no banco. Resposta em JSON.
 
-* `http://endereco/CostDistanceRest/challenge4/insertword/[termoASerCadastrado]`
+* `http://endereco/CostDistanceRest/main/insertword/[termoASerCadastrado]`
 Insere a palavra a ser cadastrada no banco. Onde termoASerCadastrado é a palavra a ser inserida no banco, ou seja, será o parâmetro.
 
-* `http://endereco/CostDistanceRest/challenge4/getmindistance?name=[termo]&threshold=[numero]`
+* `http://endereco/CostDistanceRest/main/getmindistance?name=[termo]&threshold=[numero]`
 Busca todas as palavras com distância mínima menor ou igual ao número passado por parâmetro.
 Onde termo é a palavra em questão e número é o mínimo de movimentos que se deve fazer para que as palavras no banco se transformem no termo.
 
