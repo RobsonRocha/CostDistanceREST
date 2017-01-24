@@ -1,28 +1,28 @@
 
--- SCHEMA: olx_desafio4
+-- SCHEMA: distancia
 
--- DROP SCHEMA olx_desafio4 ;
+-- DROP SCHEMA distancia ;
 
-CREATE SCHEMA olx_desafio4
+CREATE SCHEMA distancia
     AUTHORIZATION postgres;
 
-CREATE SEQUENCE olx_desafio4.palavras_id_seq
+CREATE SEQUENCE distancia.palavras_id_seq
     INCREMENT 1
     START 1
     MINVALUE 1
     MAXVALUE 9223372036854775807
     CACHE 1;
 
-ALTER SEQUENCE olx_desafio4.palavras_id_seq
+ALTER SEQUENCE distancia.palavras_id_seq
     OWNER TO postgres;
 
--- Table: olx_desafio4.palavras
+-- Table: distancia.palavras
 
--- DROP TABLE olx_desafio4.palavras;
+-- DROP TABLE distancia.palavras;
 
-CREATE TABLE olx_desafio4.palavras
+CREATE TABLE distancia.palavras
 (
-    id bigint NOT NULL DEFAULT nextval('olx_desafio4.palavras_id_seq'::regclass),
+    id bigint NOT NULL DEFAULT nextval('distancia.palavras_id_seq'::regclass),
     termo character varying(4000) NOT NULL,
     CONSTRAINT palavras_pkey PRIMARY KEY (id),
     CONSTRAINT ck_termo UNIQUE (termo)
@@ -32,5 +32,5 @@ WITH (
 )
 TABLESPACE pg_default;
 
-ALTER TABLE olx_desafio4.palavras
+ALTER TABLE distancia.palavras
     OWNER to postgres;
